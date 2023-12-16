@@ -1,0 +1,223 @@
+\documentclass[11pt,a4paper,english]{article}
+\input{preamble.tex}
+
+\author{Deyvi Andrade- Aviles}
+\date{\today}
+
+\begin{document}
+%--------------------------------------------------------------------------
+%  fill in the paper's title, author(s), and corresponding institutions
+%--------------------------------------------------------------------------
+\providecommand{\ShortAuthorList}[0]{A.~M.~Surname, B.~D.~Suffix Jr., C.~G. Suffix III} % use "A.~M.~Surname \textit{et al}." for more than three authors.
+\title{Serial Artihmetic Processor}
+% \author[1]{\thanks{}}
+% \author[2]{}
+% \author[2]{}
+\affil[]{Department of Electrical and Computer Engineering, University of Massachusetts Lowell}
+
+\date{\dateline{22 December 2023}}
+\begin{abstract}
+\noindent
+%---------------------------------------------------------------------------
+%               Include abstract and keywords here
+%---------------------------------------------------------------------------
+Serial arithmetic processors are a type of processor that performs operations on data one bit at a time, rather than processing multiple bits simultaneously like parallel processors. In this particular project, the design that is being constructed has specifications that would allow the user to perform a set of operations on a 4-bit operation code --- OpCode. The design consits of three main modules; a data path, state generator, and a control circuit. These three modules will work in conjunction to output a 4-bit result.
+
+
+\DOI{} % do not delete this line
+\end{abstract}
+
+\maketitle
+\thispagestyle{titlestyle}
+
+\pagebreak
+
+%---------------------------------------------------------------------------
+%               the main text of your paper begins here
+%---------------------------------------------------------------------------
+\section{State Transition Table}
+ The following is the truth table that will be used to construct the counter. Notice that since the counter follows an atypical counting method --- Fibonacci sequence --- we inlcude DC (Don't cares) into our truth tables denoted by the symbol $x$.
+
+ \begin{table}[h!]
+    \centering
+    \caption{
+        Truth table with inputs $Q_3, Q_2, Q_1, Q_0$, and outputs $Q_3^+ Q_2^+ Q_1^+ Q_0^+$ representing the "next states" of the 4-digit inputs. Note that the PS stands for "Present States".
+        }
+    
+    \begin{tabular}{c|c|c|c|c|c}%
+        \toprule%%_________________________________________________________________________________________________________________________________________________________
+        $ OpCode[3:0] $    &        $MUX_{OUT}$       &           $x_i$               &           $y_i$           &           $c_0$           &           $Instruction$           \\
+        \midrule%%_________________________________________________________________________________________________________________________________________________________                                   \\ \hdashline%%
+            0 0 0 0        &            $$          &           $$               &           $$           &           $$             &         \\ \hdashline%%
+            0 0 0 1        &            $$          &           $$               &           $$           &           $$             &        \\ \hdashline%%
+            0 0 1 0        &            $c_0$          &           $A_i$               &           $B_i$           &           $0$             &    add: A + B $\Rightarrow$ A     \\ \hdashline%%
+            0 0 1 1        &            $$          &           $$               &           $$           &           $$             &         \\ \hdashline%%
+            0 1 0 1        &            $$          &           $$               &           $$           &           $$             &         \\ \hdashline%%
+            1 0 1 0        &            $$          &           $$               &           $$           &           $$             &         \\ \hdashline%%
+            1 1 1 1        &            $$          &           $$               &           $$           &           $$             &         \\ \hdashline%%&                           &                               &                           &                           &                                   \\ \hdashline%%
+    \end{tabular}
+    \label{table:1}
+  \end{table}
+
+  \subsection*{Minimal SOPs}
+
+    Lets consider $d(c)$ to be the minterm sum of the Don't Care values mentioned earlier. \\
+    \begin{equation}
+        d(c) = \Sigma m(0,4,6,7,9,10,11,12,14,15)
+    \end{equation} \\ 
+
+    For UP = 1: \\
+    \\
+    \begin{math}
+        D_0(Q_3 Q_2 Q_1 Q_0) = \Sigma m(2,3,8,13) + d(c)
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math} 
+        D_1(Q_3 Q_2 Q_1 Q_0) = \Sigma m(1,2) + d(c)
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math} 
+        D_2(Q_3 Q_2 Q_1 Q_0) = \Sigma m(3,8,13) + d(c)
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math}`'
+        D_3(Q_3 Q_2 Q_1 Q_0) = \Sigma m(5,8,13) + d(c) 
+    \end{math} \vspace{10pt}
+    
+    For UP = 0: \\
+    \\
+    \begin{math}
+        D_0(Q_3 Q_2 Q_1 Q_0) = \Sigma m(1,2,5,8) + d(c)
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math}
+        D_1(Q_3 Q_2 Q_1 Q_0) = \Sigma m(2,5) + d(c)
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math}
+        D_2(Q_3 Q_2 Q_1 Q_0) = \Sigma m(8) + d(c)           \hspace{20pt}
+    \end{math} \vspace{5pt}
+    \\
+    \begin{math}
+        D_3(Q_3 Q_2 Q_1 Q_0) = \Sigma m(13) + d(c)
+    \end{math}
+    \\          
+    
+\pagebreak
+\section{Function KMAPs}
+
+For UP = 1: \\
+
+    \begin{centering}
+        $D_{0}$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, ,1,1,
+                x, ,x,x,
+                1,x,x,x,
+                x,1,x,x
+            }
+            \implicant{12}{10}{blue}
+            \implicant{3}{10}{violet}
+        \end{Karnaugh}
+        $D_1$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x,1,1, ,
+                x, ,x,x,
+                 ,x,x,x,
+                x, ,x,x
+            }
+            \implicant{0}{1}{blue}
+            \implicantcostats{0}{6}{violet}
+        \end{Karnaugh}
+        %
+        \\
+        $D_2$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, , , 1,
+                x, ,x,x,
+                1,x,x,x,
+                x,1,x,x
+            }
+            \implicant{3}{11}{blue}
+            \implicant{12}{10}{violet}
+        \end{Karnaugh}
+        $D_3$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, , , ,
+                x,1,x,x,
+                1,x,x,x,
+                x,1,x,x
+            }
+            \implicant{12}{10}{blue}
+            \implicant{4}{14}{violet}
+        \end{Karnaugh}     
+
+    \end{centering}
+    
+For UP = 0: \\
+
+    \begin{centering}
+        $D_{0}$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x,1,1, ,
+                x,1,x,x,
+                1,x,x,x,
+                x, ,x,x
+            }
+            \implicant{0}{5}{blue}
+            \implicantcostats{0}{10}{violet}
+        \end{Karnaugh}
+        $D_1$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, ,1, ,
+                x,1,x,x,
+                 ,x,x,x,
+                x, ,x,x
+            }
+            \implicant{4}{6}{blue}
+            \implicant{2}{10}{violet}
+        \end{Karnaugh}
+        %
+        \\
+       $D_2$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, , , ,
+                x, ,x,x,
+                1,x,x,x,
+                x, ,x,x
+            }
+            \implicant{0}{8}{blue}
+        \end{Karnaugh}
+        $D_3$
+        \begin{Karnaugh}
+            \contingut
+            {
+                x, , , ,
+                x, ,x,x,
+                 ,x,x,x,
+                x,1,x,x
+            }
+            \implicant{13}{11}{blue}
+        \end{Karnaugh}     
+    
+    \end{centering}
+ 
+\pagebreak
+
+\pagebreak
+
+\end{document}
