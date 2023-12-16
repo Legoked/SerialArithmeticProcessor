@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper,english]{article}
+\input{preamble.tex}
+
+\author{Deyvi Andrade- Aviles}
+\date{\today}
+
+\begin{document}
+%--------------------------------------------------------------------------
+%  fill in the paper's title, author(s), and corresponding institutions
+%--------------------------------------------------------------------------
+\providecommand{\ShortAuthorList}[0]{A.~M.~Surname, B.~D.~Suffix Jr., C.~G. Suffix III} % use "A.~M.~Surname \textit{et al}." for more than three authors.
+\title{Serial Artihmetic Processor}
+% \author[1]{\thanks{}}
+% \author[2]{}
+% \author[2]{}
+\affil[]{Department of Electrical and Computer Engineering, University of Massachusetts Lowell}
+
+\date{\dateline{22 December 2023}}
+\begin{abstract}
+\noindent
+%---------------------------------------------------------------------------
+%               Include abstract and keywords here
+%---------------------------------------------------------------------------
+Serial arithmetic processors are a type of processor that performs operations on data one bit at a time, rather than processing multiple bits simultaneously like parallel processors. In this particular project, the design that is being constructed has specifications that would allow the user to perform a set of operations on a 4-bit operation code --- OpCode. The design consits of three main modules; a data path, state generator, and a control circuit. These three modules will work in conjunction to output a 4-bit result.
+
+
+\DOI{} % do not delete this line
+\end{abstract}
+
+\maketitle
+\thispagestyle{titlestyle}
+
+\pagebreak
+
+%---------------------------------------------------------------------------
+%               the main text of your paper begins here
+%---------------------------------------------------------------------------
+\section{State Transition Table}
+\lipsum[1]
+ \begin{table}[h!]
+    \centering
+    \caption{
+        Truth table with inputs $Q_3, Q_2, Q_1, Q_0$, and outputs $Q_3^+ Q_2^+ Q_1^+ Q_0^+$ representing the "next states" of the 4-digit inputs. Note that the PS stands for "Present States".
+        }
+    
+    \begin{tabular}{c|c|c|c|c|c}%
+        \toprule%%_________________________________________________________________________________________________________________________________________________________
+        $ OpCode[3:0] $    &        $MUX_{OUT}$       &           $x_i$               &           $y_i$             &           $c_0$           &           $Instruction$                   \\
+        \midrule%%_________________________________________________________________________________________________________________________________________________________                                   \\ \hdashline%%
+            0 0 0 0        &            $c_0$          &           $A_i$               &           $0$              &           $1$             &    dec: $A - 1 \rightarrow A $            \\ \hdashline%%
+            0 0 0 1        &            $c_0$          &           $A_i$               &           $1$              &           $0$             &    inc: $A + 1 \rightarrow A $            \\ \hdashline%%
+            0 0 1 0        &            $c_0$          &           $A_i$               &           $B_i$            &           $0$             &    add: $A + B \rightarrow A $            \\ \hdashline%%
+            0 0 1 1        &            $c_0$          &           $A_i$               &      $\overline{B_i}$      &           $1$             &    sub: $A - B \rightarrow A $            \\ \hdashline%%
+            0 1 0 1        &            $c_1$          &           $A_i$               &           $1$              &           $0$             &    and: $A$ \& $B\rightarrow A $          \\ \hdashline%%
+            1 0 1 0        &            $c_2$          &           $A_i$               &           $B_i$            &           $0$             &    comp: $\overline{A} \rightarrow A$     \\ \hdashline%%
+            1 1 1 1        &            $c_3$          &           $A_i$               &      $\overline{B_i}$      &           $1$             &    or: A | B $\rightarrow$ A              \\ \hdashline%&
+    \end{tabular}
+    \label{table:1}
+  \end{table}
+
+  \subsection*{Minimal SOPs}
+    \lipsum         
+    
+\pagebreak
+
+\pagebreak
+
+\end{document}
