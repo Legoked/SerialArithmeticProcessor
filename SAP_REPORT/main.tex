@@ -58,8 +58,29 @@ Serial arithmetic processors are a type of processor that performs operations on
     \label{table:1}
   \end{table}
 
-  \subsection*{Minimal SOPs}
-    \lipsum         
+  \subsection*{Stage Generator}
+   \begin{table}[h!]
+     \centering
+     \caption{
+         Truth table with inputs $Q_3, Q_2, Q_1, Q_0$, and outputs $Q_3^+ Q_2^+ Q_1^+ Q_0^+$ representing the "next states" of the 4-digit inputs. Note that the PS stands for "Present States".
+         }
+     
+      \begin{tabular}{c|c|c|c|c|c}%
+         \toprule%%_________________________________________________________________________________________________________________________________________________________
+         $ PS $             &        $START$            &        s1rA    s0rA           &        s1rB    s0rB      &          $CSEL$           &           $CE$                   \\
+         \midrule%%_________________________________________________________________________________________________________________________________________________________                                   \\ \hdashline%%
+             $T_0$            &          $0$              &          $0$       $0$        &        $0$      $0$      &          $d$            &           $0$                    \\ \hdashline%%
+             $T_0$            &          $1$              &          $1$       $1$        &        $d$      $d$      &          $d$            &           $d$                    \\ \hdashline%%
+             $T_1$            &          $d$              &          $0$       $0$        &        $1$      $1$      &          $1$            &           $1$                    \\ \hdashline%%
+             $T_2$            &          $d$              &          $0$       $1$        &        $0$      $1$      &          $0$            &           $1$                    \\ \hdashline%%
+             $T_3$            &          $d$              &          $0$       $1$        &        $0$      $1$      &          $0$            &           $1$                    \\ \hdashline%%
+             $T_4$            &          $d$              &          $0$       $1$        &        $0$      $1$      &          $0$            &           $1$                    \\ \hdashline%%
+             $T_5$            &          $1$              &          $0$       $0$        &        $0$      $0$      &          $d$            &           $0$                    \\ \hdashline%&
+             $T_5$            &          $0$              &          $0$       $1$        &        $0$      $1$      &          $0$            &           $1$                    \\ \hdashline%&
+      \end{tabular}
+    \label{table:1}
+  \end{table}
+        
     
 \pagebreak
 
