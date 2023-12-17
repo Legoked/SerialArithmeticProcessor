@@ -1,0 +1,126 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Deyco/Documents/Lk/EECE.2165/SerialArithmeticProcessor/alu_design_restored/simulation/qsim
+valu_design
+Z1 !s110 1702836955
+!i10b 1
+!s100 5RPLk7M7Z@m87oiTJiLGk0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ie=3SQaE>O4D6dAf>Q<3N]2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1702836954
+Z5 8alu_design.vo
+Z6 Falu_design.vo
+!i122 120
+L0 32 1135
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1702836955.000000
+Z9 !s107 alu_design.vo|
+Z10 !s90 -work|work|alu_design.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+valu_design_vlg_vec_tst
+R1
+!i10b 1
+!s100 2^>0=XjE``M^LT=OV9mNZ0
+R2
+IiP[[IlR;dSJ:Eg0KA[i]82
+R3
+R0
+R4
+8aluWaveform.vwf.vt
+FaluWaveform.vwf.vt
+!i122 121
+L0 30 92
+R7
+r1
+!s85 0
+31
+R8
+!s107 aluWaveform.vwf.vt|
+!s90 -work|work|aluWaveform.vwf.vt|
+!i113 1
+R11
+R12
+vhard_block
+R1
+!i10b 1
+!s100 c5AS3U3Rk@GMZ4``2i5TB2
+R2
+IaO>WeThaIY8P:Wclzj9BS1
+R3
+R0
+R4
+R5
+R6
+!i122 120
+L0 1168 45
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vstate_gen
+Z13 !s110 1702789618
+!i10b 1
+!s100 =FLmC[LoQLPgN3cLN[fQW3
+R2
+IRhem[c>llPRFRHS6ckhSk3
+R3
+R0
+Z14 w1702789617
+R5
+R6
+!i122 28
+L0 32 512
+R7
+r1
+!s85 0
+31
+Z15 !s108 1702789618.000000
+R9
+R10
+!i113 1
+R11
+R12
+vstate_gen_vlg_vec_tst
+R13
+!i10b 1
+!s100 Q5m=6DDC0HHL6AfYB>;YO0
+R2
+I>@zI;Rm;[EY:UXNA2imj;2
+R3
+R0
+R14
+8stage_genWaveform.vwf.vt
+Fstage_genWaveform.vwf.vt
+!i122 29
+L0 30 45
+R7
+r1
+!s85 0
+31
+R15
+!s107 stage_genWaveform.vwf.vt|
+!s90 -work|work|stage_genWaveform.vwf.vt|
+!i113 1
+R11
+R12
