@@ -1,4 +1,4 @@
-`'\documentclass[11pt,a4paper,english]{article}
+\documentclass[11pt,a4paper,english]{article}
 \input{preamble.tex}
 
 \author{Deyvi Andrade- Aviles}
@@ -72,8 +72,66 @@ Serial arithmetic processors are a type of processor that performs operations on
   \end{table}
 %
 \pagebreak
+ 
  \subsection*{Stage Generator}
-  \paragraph*{Transition table}
+  \paragraph*{State Diagram}
+  As stated prior, this machine is configured to have an asynchronous reset; in doing so, the machine needs to be able to decide what operations it must be accomplishing. Figure 2 depicts an interpretation of the ASM chart of the serial arithmetic processor. The diagram depicts the different states that the machine may undergo during its operation. Note the implicit timing information that is denoted by box which indicates exactly what operation the machine is undergoing during said state (denoted by $T_i$ where $i$ represents a state from 1-5).
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[height=70mm]{ss/STATE_DIAGRAM.png}
+    \caption{
+      State diagram for the serial arithmetic prossesor. The ASM for this machine can be summed up in the following sentences:
+      Hold in the initial state (T0) until \textbf{START} is set to 1. Move through the remaining 5 states and return to $T0$ when completed. The value of \textbf{START} does not matter while in states 1-4. The system will pause in $T5$ if \textbf{START} is left at 1, and will only return to $T0$ if \textbf{START} = 0. Asynchronously return to the initial state (T0) when the system \textbf{RESET} is ‘0’
+    }
+    \label{figure}
+  \end{figure}
+  \paragraph*{State Table \& Formulas}
+  The following is the state table and the formulas derived from the State table. Note that the inputs for the table are $PS$ and START %
+  \begin{table}[H]
+    \centering
+    \caption{State Table}
+    \begin{tabular}{c|c|c}%
+      \toprule%%______________________________________________
+          $PS$    &  START &     $NS$      \\
+      \midrule%%______________________________________________ \\ \hdashline%%
+          $T_0$   &   $0$    &     $T_0$     \\\hdashline%%
+          $T_0$   &   $1$    &     $T_1$     \\\hdashline%%
+          $T_1$   &   $x$    &     $T_2$     \\\hdashline%%
+          $T_2$   &   $x$    &     $T_3$     \\\hdashline%%
+          $T_3$   &   $x$    &     $T_4$     \\\hdashline%%
+          $T_4$   &   $x$    &     $T_5$     \\\hdashline%%
+          $T_5$   &   $1$    &     $T_5$     \\\hdashline%%
+          $T_5$   &   $0$    &     $T_0$     \\\hdashline%%
+    \end{tabular}
+  \end{table}
+
+  \begin{math}
+    DFF \rightarrow D_0 = T_0^+ \\ 
+    D_1 = T_0 \cdot START \\
+    D_2 = T_1 \\
+    D_3 = T_2 \\ 
+    D_4 = T_3 \\
+    D_5 = T_4 + (T_5 \cdot START)
+  \end{math}
+
+\pagebreak
+
+  \paragraph*{State Generator Block Diagram Schematic}
+   The first diagram shown in this project is of the state generator. The main function behind this module is to generate the state in which the machine is operating in. Note that the clock is wired asynchronously.
+
+   \begin{figure}[h!]
+    \centering
+    \includegraphics*[height=95mm]{./ss/StageGenBDF.png}
+    \caption{Block diagram figure of the state generator module used in the serial arithmetic processesor in Quartus Prime.}
+    \label{figure}
+   \end{figure}
+
+   \begin{figure}[h!]
+    \centering
+    \includegraphics[height=95mm]{./ss/StageGenWaveform.png}
+    \caption{Waveform diagram of the state generator module indicating that the module is functioning as intendended.}
+    \label{figure}
+   \end{figure}
 
 \pagebreak
     \begin{table}[h!]
