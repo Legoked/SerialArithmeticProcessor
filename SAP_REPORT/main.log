@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.29)  19 DEC 2023 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.29)  21 DEC 2023 01:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -752,6 +752,9 @@ LaTeX Warning: Label `figure' multiply defined.
 LaTeX Warning: Label `figure' multiply defined.
 
 
+LaTeX Warning: Label `figure' multiply defined.
+
+
 LaTeX Warning: Label `table:1' multiply defined.
 
 )
@@ -896,8 +899,96 @@ File: ./ss/StageGenWaveform.png Graphic file (type png)
 Package pdftex.def Info: ./ss/StageGenWaveform.png  used on input line 131.
 (pdftex.def)             Requested size: 480.53433pt x 270.30118pt.
  [4 <./ss/StageGenWaveform.png> <./ss/StageGenBDF.png>]
+<ss/ASMCHART.png, id=65, 575.14874pt x 1046.91125pt>
+File: ss/ASMCHART.png Graphic file (type png)
+<use ss/ASMCHART.png>
+Package pdftex.def Info: ss/ASMCHART.png  used on input line 143.
+(pdftex.def)             Requested size: 203.2007pt x 369.88582pt.
+ [5 <./ss/ASMCHART.png>]
+<./ss/controlCircuitBDF.png, id=75, 1444.64719pt x 813.0375pt>
+File: ./ss/controlCircuitBDF.png Graphic file (type png)
+<use ./ss/controlCircuitBDF.png>
+Package pdftex.def Info: ./ss/controlCircuitBDF.png  used on input line 181.
+(pdftex.def)             Requested size: 455.00015pt x 256.0748pt.
+<./ss/ALU_DESIGN.png, id=76, 1445.4pt x 813.0375pt>
+File: ./ss/ALU_DESIGN.png Graphic file (type png)
+<use ./ss/ALU_DESIGN.png>
+Package pdftex.def Info: ./ss/ALU_DESIGN.png  used on input line 186.
+(pdftex.def)             Requested size: 455.23724pt x 256.0748pt.
+ [6 <./ss/controlCircuitBDF.png> <./ss/ALU_DESIGN.png>]
+<./ss/p4_dec(0000).png, id=88, 736.25063pt x 813.0375pt>
+File: ./ss/p4_dec(0000).png Graphic file (type png)
+<use ./ss/p4_dec(0000).png>
+Package pdftex.def Info: ./ss/p4_dec(0000).png  used on input line 196.
+(pdftex.def)             Requested size: 216.42812pt x 239.00314pt.
+
+Overfull \hbox (22.95233pt too wide) in paragraph at lines 196--197
+ [][] 
+ []
+
+<./ss/p4_inc(0001).png, id=89, 739.26187pt x 813.0375pt>
+File: ./ss/p4_inc(0001).png Graphic file (type png)
+<use ./ss/p4_inc(0001).png>
+Package pdftex.def Info: ./ss/p4_inc(0001).png  used on input line 202.
+(pdftex.def)             Requested size: 217.3133pt x 239.00314pt.
+
+Overfull \hbox (23.83751pt too wide) in paragraph at lines 202--203
+ [][] 
+ []
+
+<./ss/p4_add(0010).png, id=90, 745.28438pt x 813.0375pt>
+File: ./ss/p4_add(0010).png Graphic file (type png)
+<use ./ss/p4_add(0010).png>
+Package pdftex.def Info: ./ss/p4_add(0010).png  used on input line 211.
+(pdftex.def)             Requested size: 219.08368pt x 239.00314pt.
+
+Overfull \hbox (25.6079pt too wide) in paragraph at lines 211--212
+ [][] 
+ []
+
+<./ss/p4_sub(0011).png, id=91, 744.53156pt x 813.0375pt>
+File: ./ss/p4_sub(0011).png Graphic file (type png)
+<use ./ss/p4_sub(0011).png>
+Package pdftex.def Info: ./ss/p4_sub(0011).png  used on input line 217.
+(pdftex.def)             Requested size: 218.86238pt x 239.00314pt.
+
+Overfull \hbox (25.3866pt too wide) in paragraph at lines 217--218
+ [][] 
+ []
+
+<./ss/p4_and(0101).png, id=92, 769.37437pt x 813.0375pt>
+File: ./ss/p4_and(0101).png Graphic file (type png)
+<use ./ss/p4_and(0101).png>
+Package pdftex.def Info: ./ss/p4_and(0101).png  used on input line 226.
+(pdftex.def)             Requested size: 226.16518pt x 239.00314pt.
+
+Overfull \hbox (32.68939pt too wide) in paragraph at lines 226--227
+ [][] 
+ []
+
+<./ss/p4_comp(1010).png, id=93, 718.18312pt x 813.0375pt>
+File: ./ss/p4_comp(1010).png Graphic file (type png)
+<use ./ss/p4_comp(1010).png>
+Package pdftex.def Info: ./ss/p4_comp(1010).png  used on input line 232.
+(pdftex.def)             Requested size: 211.117pt x 239.00314pt.
+
+Overfull \hbox (17.64122pt too wide) in paragraph at lines 232--233
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./ss/p4_or(1111).png, id=94, 755.82375pt x 809.27344pt>
+File: ./ss/p4_or(1111).png Graphic file (type png)
+<use ./ss/p4_or(1111).png>
+Package pdftex.def Info: ./ss/p4_or(1111).png  used on input line 239.
+(pdftex.def)             Requested size: 223.20827pt x 239.00314pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 No complaints by nag.
-[5] (./main.aux)
+[7 <./ss/p4_dec(0000).png> <./ss/p4_inc(0001).png> <./ss/p4_add(0010).png> <./ss/p4_sub(0011).png>] [8 <./ss/p4_and(0101).png> <./ss/p4_comp(1010).png> <./ss/p4_or(1111).png>] (./main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -905,18 +996,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 4B8F9E734FA9B5AC5944C5CBC0F16B80;73.
  ) 
 Here is how much of TeX's memory you used:
- 25610 strings out of 476025
- 478583 string characters out of 5790016
+ 25696 strings out of 476025
+ 480499 string characters out of 5790016
  1868388 words of memory out of 5000000
- 45565 multiletter control sequences out of 15000+600000
+ 45625 multiletter control sequences out of 15000+600000
  524080 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,12n,120p,777b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (5 pages, 2816463 bytes).
+Output written on main.pdf (8 pages, 5954626 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

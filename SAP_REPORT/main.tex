@@ -89,7 +89,7 @@ Serial arithmetic processors are a type of processor that performs operations on
   The following is the state table and the formulas derived from the State table. Note that the inputs for the table are $PS$ and START %
   \begin{table}[H]
     \centering
-    \caption{State Table}
+    \caption{Transition table for the stage generator portion of the machine.}
     \begin{tabular}{c|c|c}%
       \toprule%%______________________________________________
           $PS$    &  START &     $NS$      \\
@@ -117,7 +117,7 @@ Serial arithmetic processors are a type of processor that performs operations on
 \pagebreak
 
   \paragraph*{State Generator Block Diagram Schematic}
-   The first diagram shown in this project is of the state generator. The main function behind this module is to generate the state in which the machine is operating in. Note that the clock is wired asynchronously.
+   The first diagram shown in this project is of the state generator. The main function behind this module is to generate the state in which the machine is operating in. Note that the clock is wired to reset asynchronously.
 
    \begin{figure}[h!]
     \centering
@@ -134,10 +134,21 @@ Serial arithmetic processors are a type of processor that performs operations on
    \end{figure}
 
 \pagebreak
-    \begin{table}[h!]
+  \subsection*{Control Circuit}
+   \paragraph*{Control Circuit Truth Table}
+   The last module that must be configured for this machine is the control circuit. The purpose behind this module is it is essentially a ccombinational circuit whose inputs sets the control signals; these signals are based on the PS and current inputs.
+
+   \begin{figure}[h!]
+    \centering
+    \includegraphics[height=130mm]{ss/ASMCHART.png}
+    \caption{ASM chart of the serial arithmetic processor. This chart in particular was used to develop the formulas for the control circuit. Note that the register instructions are purposely left implicit for the sake of a more approachable visual interpretation of the machine's instructions and operation.}
+    \label{figure}
+   \end{figure}
+    
+   \begin{table}[h!]
       \centering
       \caption{
-          filler
+          Truth table derived from the ASM chart in Figure 5. Since the instructions are implicitly stated, statements had to be translated. ``Hold Reg A'' will refer to literally holding the 4-bit number held in register A, but also represents the operation that the register will accomplish with the said number.
           }
       
         \begin{tabular}{c|c|c|c|c|c}%
@@ -154,6 +165,81 @@ Serial arithmetic processors are a type of processor that performs operations on
               $T_5$            &          $0$              &          $0$       $1$        &        $0$      $1$      &          $0$            &           $1$                    \\ \hdashline%&
         \end{tabular}
       \label{table:1}
-    \end{table}
+   \end{table}
+
+\pagebreak
+  \paragraph*{Control Circuit \& APU Circuit} Prior to constructing the block diagram, formulas must be derived once more from its respective table Note that the formulas for CE, s0rB, and s1rB, CSEL are shared respectively. This makes sense as if you locate the outputs on the control circuit truth table, depend on what values you set the Don't Cares to, you can have the same outputs.
+  \begin{equation}
+    s1rA = T_0 \cdot START \hspace{20pt} \overline{s0rA} = (T_0 \cdot \overline{START}) + T_1 + (T_5 \cdot START)
+  \end{equation}
+  \begin{equation}
+    s1rB = CSEL = T_1 \hspace*{20pt} s0rB = CE = T_0 \oplus \overline{(T_5 \cdot START)}
+  \end{equation}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[height=90mm]{./ss/controlCircuitBDF.png}
+    \caption{Block diagram schematic of the control circuit module.}
+  \end{figure}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[height=90mm]{./ss/ALU_DESIGN.png}
+    \caption{Block diagram schematic of all three modules wired together to compose the serial arithmetic processor.}
+  \end{figure}
+\pagebreak
+
+  \section*{ALU Tests}
+
+  \begin{figure}[h]
+    \begin{minipage}[c]{0.4\linewidth}
+    \centering
+    \includegraphics[height=84mm]{./ss/p4_dec(0000).png}
+    \caption{OpCode 0000 (DEC)}
+    \end{minipage}
+    \hspace*{50pt}
+    \begin{minipage}[c]{0.4\linewidth}
+    \centering
+    \includegraphics[height=84mm]{./ss/p4_inc(0001).png}
+    \caption{OpCode 0001 (INC)}
+    \end{minipage}%
+    \end{figure}
     
+    %% Operations 1-4
+    \begin{figure}[h]
+        \begin{minipage}[c]{0.4\linewidth}
+        \centering
+        \includegraphics[height=84mm]{./ss/p4_add(0010).png}
+        \caption{OpCode0010 (ADD)}
+        \end{minipage}
+        \hspace*{50pt}
+        \begin{minipage}[c]{0.4\linewidth}
+        \centering
+        \includegraphics[height=84mm]{./ss/p4_sub(0011).png}
+        \caption{OpCode 0011 (SUB)}
+        \end{minipage}%
+    \end{figure}
+
+    %% Operations 5-7
+    \begin{figure}[h]
+          \begin{minipage}[c]{0.4\linewidth}
+          \centering
+          \includegraphics[height=84mm]{./ss/p4_and(0101).png}
+          \caption{OpCode 0101 (AND)}
+          \end{minipage}
+          \hspace*{50pt}
+          \begin{minipage}[c]{0.4\linewidth}
+          \centering
+          \includegraphics[height=84mm]{./ss/p4_comp(1010).png}
+          \caption{OpCode 1010 (COMP)}
+          \end{minipage}%
+    \end{figure}
+      
+    \begin{figure}[h]
+      \centering
+      \includegraphics[height=84mm]{./ss/p4_or(1111).png}
+      \caption{Opcode 1111 (OR)}
+    \end{figure}
+      
+
+
 \end{document}
